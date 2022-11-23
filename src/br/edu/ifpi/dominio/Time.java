@@ -3,15 +3,14 @@ package br.edu.ifpi.dominio;
 public class Time {
     private String nome;
     private String serie;
-    private int numPontos;
-    private int numVitorias;
-    private int numDerrotas;
+    private int numeroVitorias;
+    private int numeroDerrotas;
 
-    public Time(String nome, String serie, int numPontos, int numVitorias, int numDerrotas) {
+    public Time(String nome, String serie, int numPontos, int numeroVitorias, int numeroDerrotas) {
         this.nome = nome;
-        this.numPontos = numPontos;
-        this.numVitorias = numVitorias;
-        this.numDerrotas = numDerrotas;
+        this.serie = serie;
+        this.numeroVitorias = numeroVitorias;
+        this.numeroDerrotas = numeroDerrotas;
     }
 
     public String getNome() {
@@ -22,35 +21,19 @@ public class Time {
         return serie;
     }
 
-    public int getNumPontos() {
-        return numPontos;
+    public int getNumeroVitorias() {
+        return numeroVitorias;
     }
 
-    public int getNumVitorias() {
-        return numVitorias;
+    public int getNumeroDerrotas() {
+        return numeroDerrotas;
     }
 
-    public int getNumDerrotas() {
-        return numDerrotas;
+    public void contNumeroVitorias(int numeroVitorias) {
+        this.numeroVitorias = numeroVitorias + 1;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setSerie(String serie) {
-        this.serie = serie;
-    }
-
-    public void setNumPontos(int numPontos) {
-        this.numPontos = numPontos;
-    }
-
-    public void setNumVitorias(int numVitorias) {
-        this.numVitorias = numVitorias;
-    }
-
-    public void setNumDerrotas(int numDerrotas) {
-        this.numDerrotas = numDerrotas;
+    public void contNumeroDerrotas(int numeroDerrotas) {
+        this.numeroDerrotas = numeroDerrotas + 1;
     } 
 }

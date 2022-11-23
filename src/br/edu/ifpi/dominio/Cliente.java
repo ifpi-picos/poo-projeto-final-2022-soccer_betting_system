@@ -1,5 +1,4 @@
 package br.edu.ifpi.dominio;
-
 import java.time.LocalDate;
 
 public class Cliente {
@@ -8,7 +7,7 @@ public class Cliente {
     private LocalDate dataNascimento;
     private Endereco endereco;
 
-    public Cliente(String nome, String email, LocalDate dataNascimento, Endereco endereco){
+    public Cliente(String nome, String email, LocalDate dataNascimento, Endereco endereco) {
         this.nome = nome;
         this.email = email;
         this.dataNascimento = dataNascimento;
@@ -27,12 +26,11 @@ public class Cliente {
         return dataNascimento;
     }
 
-    public void setEmail(String email){
+    public void setEmail(String email) {
         this.email = email;
     }
 
     public Endereco getEndereco() {
         return endereco;
-    }
-    
+    }   
 }

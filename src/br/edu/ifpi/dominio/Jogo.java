@@ -9,7 +9,9 @@ public class Jogo {
     private double valorVitoriaTimeB;
     private double valorEmpate;
 
-    public Jogo(LocalDateTime dataHora, double valorVitoriaTimeA, double valorVitoriaTimeB, double valorEmpate){
+    public Jogo(Time timeA, Time timeB, LocalDateTime dataHora, double valorVitoriaTimeA, double valorVitoriaTimeB, double valorEmpate){
+      this.timeA = timeA;
+      this.timeB = timeB;
       this.dataHora = dataHora;
       this.valorVitoriaTimeA = valorVitoriaTimeA;
       this.valorVitoriaTimeB = valorVitoriaTimeB;
@@ -30,6 +32,14 @@ public class Jogo {
 
     public double getValorVitoriaTimeA() {
         return valorVitoriaTimeA;
+    }
+
+    public void setTimeA(Time timeA) {
+        this.timeA = timeA;
+    }
+
+    public void setTimeB(Time timeB) {
+        this.timeB = timeB;
     }
 
     public void setValorVitoriaTimeA(double valorVitoriaTimeA) {

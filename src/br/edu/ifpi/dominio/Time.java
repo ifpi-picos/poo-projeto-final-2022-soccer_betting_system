@@ -2,15 +2,13 @@ package br.edu.ifpi.dominio;
 
 public class Time {
     private String nome;
-    private String serie;
     private int numeroPontos;
     private int numeroVitorias;
     private int numeroEmpates;
     private int numeroDerrotas;
 
-    public Time(String nome, String serie, int numPontos, int numeroVitorias, int numeroEmpates, int numeroDerrotas) {
+    public Time(String nome,int numPontos, int numeroVitorias, int numeroEmpates, int numeroDerrotas) {
         this.nome = nome;
-        this.serie = serie;
         this.numeroVitorias = numeroVitorias;
         this.numeroEmpates = numeroEmpates;
         this.numeroDerrotas = numeroDerrotas;
@@ -18,10 +16,6 @@ public class Time {
 
     public String getNome() {
         return nome;
-    }
-
-    public String getSerie() {
-        return serie;
     }
 
     public int getNumeroPontos() {
@@ -62,7 +56,6 @@ public class Time {
     public String toString() {
         return "["  
                     + this.nome + ", "
-                    + this.serie + ", "
                     + this.numeroPontos + ", "
                     + this.numeroVitorias + ", "
                     + this.numeroDerrotas +               

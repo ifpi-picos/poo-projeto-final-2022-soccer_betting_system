@@ -51,4 +51,16 @@ public class Jogo {
     public void setValorEmpate(double valorEmpate) {
         this.valorEmpate = valorEmpate;
     }
+
+    @Override
+    public String toString() {
+        return "["  
+                    + this.timeA + ", "
+                    + this.timeB + ", "
+                    + this.dataHora + ", "
+                    + this.valorVitoriaTimeA + ", "
+                    + this.valorVitoriaTimeB + ", "
+                    + this.valorEmpate +                  
+                "]";
+    }
 }

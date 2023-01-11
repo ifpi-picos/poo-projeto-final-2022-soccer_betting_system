@@ -26,12 +26,24 @@ public class Cliente {
         return dataNascimento;
     }
 
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     @Override

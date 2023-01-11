@@ -1,108 +1,54 @@
-import java.time.LocalDateTime;
-import java.util.Scanner;
-import java.util.Random;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-
 import br.edu.ifpi.dominio.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
-        //INTRODUÇÃO
-
-        LocalDateTime dataHoraJogo = LocalDateTime.of(2023, 01, 12, 16, 0);
-
-        double valorVitoriaTimeA = 0, valorVitoriaTimeB = 0, valorEmpate = 0;
-
-        int contJogos = 1, contClassificacao = 1, randA, randB;
-
         List<Time> times = new ArrayList<>();
         List<Jogo> jogos = new ArrayList<>();
-        List<Integer> rands = new ArrayList<>();
+        List<Cliente> clientes = new ArrayList<>();
+        List<Aposta> apostas = new ArrayList<>();
 
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
+        times.add(new Time("Flamengo", 10, 3, 1, 0));
+        times.add(new Time("Corinthias", 4, 2, 1, 0));
+        times.add(new Time("Vasco", 20, 6, 2, 2));
+        times.add(new Time("Palmeiras", 16, 3, 7, 4));
+        times.add(new Time("Internacional",20, 5, 5, 0));
+        times.add(new Time("Fluminense", 18, 6, 0, 0));
+        times.add(new Time("Atlético-MG", 3, 1, 0, 1));
+        times.add(new Time("São Paulo", 14, 4, 2, 0));
+        times.add(new Time("Athletico-PR", 15, 4, 3, 0));
+        times.add(new Time("Grêmio", 16, 5, 1, 0));
 
-        Time time1 = new Time("Flamengo", 0, 0, 0, 0);
-        Time time2 = new Time("Corinthias", 0, 0, 0, 0);
-        Time time3 = new Time("Vasco", 0, 0, 0, 0);
-        Time time4 = new Time("Palmeiras", 0, 0, 0, 0);
-        Time time5 = new Time("Internacional", 0, 0, 0, 0);
-        Time time6 = new Time("Fluminense", 0, 0, 0, 0);
-        Time time7 = new Time("Atlético-MG", 0, 0, 0, 0);
-        Time time8 = new Time("São Paulo", 0, 0, 0, 0);
-        Time time9 = new Time("Athletico-PR", 0, 0, 0, 0);
-        Time time10 = new Time("Grêmio", 0, 0, 0, 0);
 
-        times.add(time1); times.add(time2); times.add(time3); times.add(time4); times.add(time5);
-        times.add(time6); times.add(time7); times.add(time8); times.add(time9); times.add(time10);
+        jogos.add(new Jogo(times.get(0), times.get(1), LocalDateTime.of(2022, 1, 16, 16, 0), 1000, 1000, 500));
+        jogos.add(new Jogo(times.get(2), times.get(3), LocalDateTime.of(2022, 1, 16, 16, 0), 1000, 1000, 500));
+        jogos.add(new Jogo(times.get(4), times.get(5), LocalDateTime.of(2022, 1, 16, 16, 0), 1000, 1000, 500));
+        jogos.add(new Jogo(times.get(6), times.get(7), LocalDateTime.of(2022, 1, 16, 16, 0), 1000, 1000, 500));
+        jogos.add(new Jogo(times.get(8), times.get(9), LocalDateTime.of(2022, 1, 16, 16, 0), 1000, 1000, 500));
 
-        times.sort(Comparator.comparing(Time::getNumeroPontos).reversed());
+        Endereco endereco1 = new Endereco("Castro Alves", 456, "Junco", "Picos", "PI");
+        Endereco endereco2 = new Endereco("Castelo Branco", 406, "Centro", "Picos", "PI");
+        Endereco endereco3 = new Endereco("Rui Barbosa", 667, "Junco", "Picos", "PI");
 
-        System.out.println("\nCLASSIFICAÇÃO DOS TIMES\n");
+        clientes.add(new Cliente("Carlos", "carlos@gmail.com", LocalDate.of(2003, 1, 1), endereco1));
+        clientes.add(new Cliente("Pedro", "pedro@gmail.com", LocalDate.of(2002, 6, 12), endereco2));
+        clientes.add(new Cliente("João", "joao@gmail.com", LocalDate.of(1999, 2, 14), endereco3));
 
-        System.out.println("------------------------------------------------------------------------------------------");
-
-        for (Time time : times) {
-            if (contClassificacao == 10) {
-                System.out.println(contClassificacao + "º " + time.getNome() + " - Pontos: " + time.getNumeroPontos() + " | Vitórias: " + time.getNumeroVitorias() + " | Empates: " + time.getNumeroEmpates() + " | Derrotas: " + time.getNumeroDerrotas() + "\n");       
-            }
-
-            else {
-                System.out.println(contClassificacao + "º  " + time.getNome() + " - Pontos: " + time.getNumeroPontos() + " | Vitórias: " + time.getNumeroVitorias() + " | Empates: " + time.getNumeroEmpates() + " | Derrotas: " + time.getNumeroDerrotas() + "\n");       
-            }
-            
-            contClassificacao ++;
-        }
-
-        System.out.println("------------------------------------------------------------------------------------------");
-
-        for (int i = 0; i < 5; i ++) {
-            randA = random.nextInt(0, 10);
-            randB = random.nextInt(0, 10);
-
-            while (rands.contains(randA)) {
-                randA = random.nextInt(0, 10);
-            }
-
-            rands.add(randA);
-
-            while (rands.contains(randB)) {
-                randB = random.nextInt(0, 10);
-            }
-
-            rands.add(randB);
-
-            if (randA < randB) {
-                valorVitoriaTimeA = 1000;
-                valorVitoriaTimeB = 500;
-                valorEmpate = 750;
-            }
-
-            else {
-                valorVitoriaTimeB = 1000;
-                valorVitoriaTimeA = 500;
-                valorEmpate = 750;
-            }
-
-            Jogo jogo = new Jogo(times.get(randA), times.get(randB), dataHoraJogo, valorVitoriaTimeA, valorVitoriaTimeB, valorEmpate);
-            jogos.add(jogo);
-        }
+        Jogo[] jogosCli1 = {jogos.get(0), jogos.get(1), jogos.get(2)};
+        Time[] resultatosCli1 = {jogos.get(0).getTimeA(), jogos.get(1).getTimeB(), jogos.get(2).getTimeA()};
         
-        System.out.println("\nJOGOS DESSA RODADA\n");
-        System.out.println("------------------------------------------------------------------------------------------");
+        Jogo[] jogosCli2 = {jogos.get(4)};
+        Time[] resultatosCli2 = {jogos.get(0).getTimeA()};
+        
+        Jogo[] jogosCli3 = {jogos.get(2), jogos.get(3)};
+        Time[] resultatosCli3 = {jogos.get(0).getTimeB(), jogos.get(1).getTimeB()};
 
-        for (Jogo jogo : jogos) {
-            System.out.println("Jogo " + contJogos + ": " + jogo.getTimeA().getNome() + " X " + jogo.getTimeB().getNome() + "\n");
-            System.out.println("Valor da Vitória do " + jogo.getTimeA().getNome() + " = R$ " + jogo.getValorVitoriaTimeA());
-            System.out.println("Valor da Vitória do " + jogo.getTimeB().getNome() + " = R$ " + jogo.getValorVitoriaTimeB());
-            System.out.println("Valor do Empate = R$ " + jogo.getValorEmpate() + "\n");
-            System.out.println("------------------------------------------------------------------------------------------");
-            contJogos ++;
-        }
-
-        scanner.close();
+        apostas.add(new Aposta(LocalDate.of(2023, 1, 14), jogosCli1, clientes.get(0), resultatosCli1));
+        apostas.add(new Aposta(LocalDate.of(2023, 1, 14), jogosCli2, clientes.get(1), resultatosCli2));
+        apostas.add(new Aposta(LocalDate.of(2023, 1, 14), jogosCli3, clientes.get(2), resultatosCli3));
     }
 }

@@ -34,20 +34,33 @@ public class Jogo {
         return valorVitoriaTimeA;
     }
 
-    public void setValorVitoriaTimeA(double valorVitoriaTimeA) {
-        this.valorVitoriaTimeA = valorVitoriaTimeA;
-    }    
-    
     public double getValorVitoriaTimeB() {
         return valorVitoriaTimeB;
     }
 
-    public void setValorVitoriaTimeB(double valorVitoriaTimeB) {
-        this.valorVitoriaTimeB = valorVitoriaTimeB;
-    }
-
     public double getValorEmpate() {
         return valorEmpate;
+    }
+
+    public void setTimeA(Time timeA) {
+        this.timeA = timeA;
+    }
+
+    public void setTimeB(Time timeB) {
+        this.timeB = timeB;
+    }
+
+    public void setDataHora(LocalDateTime dataHora) {
+        this.dataHora = dataHora;
+    }
+
+    public void setValorVitoriaTimeA(double valorVitoriaTimeA) {
+        this.valorVitoriaTimeA = valorVitoriaTimeA;
+    }    
+    
+
+    public void setValorVitoriaTimeB(double valorVitoriaTimeB) {
+        this.valorVitoriaTimeB = valorVitoriaTimeB;
     }
 
     public void setValorEmpate(double valorEmpate) {

@@ -34,23 +34,25 @@ public class Time {
     public int getNumeroDerrotas() {
         return numeroDerrotas;
     }
-    
-    public void contNumeroPontos(int numeroPontos) {
-        this.numeroPontos = numeroPontos + 3;
-    }
-    
-    public void contNumeroVitorias(int numeroVitorias) {
-        this.numeroVitorias = numeroVitorias + 1;
-        contNumeroPontos(numeroVitorias);
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void contNumeroEmpates(int numeroEmpates) {
-        this.numeroEmpates = numeroEmpates + 1;
-        contNumeroPontos(numeroEmpates - 2);
+    public void setNumeroPontos(int numeroPontos) {
+        this.numeroPontos = numeroPontos;
     }
-    
-    public void contNumeroDerrotas(int numeroDerrotas) {
-        this.numeroDerrotas = numeroDerrotas + 1;
+
+    public void setNumeroVitorias(int numeroVitorias) {
+        this.numeroVitorias = numeroVitorias;
+    }
+
+    public void setNumeroEmpates(int numeroEmpates) {
+        this.numeroEmpates = numeroEmpates;
+    }
+
+    public void setNumeroDerrotas(int numeroDerrotas) {
+        this.numeroDerrotas = numeroDerrotas;
     }
 
     @Override

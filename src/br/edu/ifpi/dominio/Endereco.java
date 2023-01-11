@@ -35,6 +35,26 @@ public class Endereco {
         return uf;
     }
 
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
     @Override
     public String toString() {
         return "["  

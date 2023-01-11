@@ -32,5 +32,15 @@ public class Cliente {
 
     public Endereco getEndereco() {
         return endereco;
-    }   
+    }
+
+    @Override
+    public String toString() {
+        return "["  
+                    + this.nome + ", "
+                    + this.email + ", "
+                    + this.dataNascimento + ", "
+                    + this.endereco + 
+                "]";
+    }
 }

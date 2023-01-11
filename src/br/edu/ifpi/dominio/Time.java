@@ -9,6 +9,7 @@ public class Time {
 
     public Time(String nome,int numPontos, int numeroVitorias, int numeroEmpates, int numeroDerrotas) {
         this.nome = nome;
+        this.numeroPontos = numPontos;
         this.numeroVitorias = numeroVitorias;
         this.numeroEmpates = numeroEmpates;
         this.numeroDerrotas = numeroDerrotas;

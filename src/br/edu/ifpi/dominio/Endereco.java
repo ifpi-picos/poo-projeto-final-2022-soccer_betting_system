@@ -33,5 +33,16 @@ public class Endereco {
 
     public String getUf() {
         return uf;
-    }   
+    }
+
+    @Override
+    public String toString() {
+        return "["  
+                    + this.rua + ", "
+                    + this.numero + ", "
+                    + this.bairro + ", "
+                    + this.cidade + ", "
+                    + this.uf + 
+                "]";
+    }
 }

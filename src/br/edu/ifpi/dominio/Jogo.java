@@ -34,14 +34,6 @@ public class Jogo {
         return valorVitoriaTimeA;
     }
 
-    public void setTimeA(Time timeA) {
-        this.timeA = timeA;
-    }
-
-    public void setTimeB(Time timeB) {
-        this.timeB = timeB;
-    }
-
     public void setValorVitoriaTimeA(double valorVitoriaTimeA) {
         this.valorVitoriaTimeA = valorVitoriaTimeA;
     }    

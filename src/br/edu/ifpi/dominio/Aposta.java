@@ -28,5 +28,15 @@ public class Aposta {
 
     public String getResultado() {
         return resultado;
-    }   
+    }
+
+    @Override
+    public String toString() {
+        return "["  
+                    + this.data + ", "
+                    + this.jogos + ", "
+                    + this.cliente + ", "
+                    + this.resultado + 
+                "]";
+    }
 }

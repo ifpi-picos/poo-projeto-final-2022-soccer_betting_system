@@ -3,6 +3,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -11,6 +12,8 @@ public class App {
         List<Jogo> jogos = new ArrayList<>();
         List<Cliente> clientes = new ArrayList<>();
         List<Aposta> apostas = new ArrayList<>();
+
+        Random random = new Random();
 
         times.add(new Time("Flamengo", 10, 3, 1, 0));
         times.add(new Time("Corinthias", 4, 2, 1, 0));
@@ -22,7 +25,6 @@ public class App {
         times.add(new Time("São Paulo", 14, 4, 2, 0));
         times.add(new Time("Athletico-PR", 15, 4, 3, 0));
         times.add(new Time("Grêmio", 16, 5, 1, 0));
-
 
         jogos.add(new Jogo(times.get(0), times.get(1), LocalDateTime.of(2022, 1, 16, 16, 0), 1000, 1000, 500));
         jogos.add(new Jogo(times.get(2), times.get(3), LocalDateTime.of(2022, 1, 16, 16, 0), 1000, 1000, 500));
@@ -42,13 +44,82 @@ public class App {
         Time[] resultatosCli1 = {jogos.get(0).getTimeA(), jogos.get(1).getTimeB(), jogos.get(2).getTimeA()};
         
         Jogo[] jogosCli2 = {jogos.get(4)};
-        Time[] resultatosCli2 = {jogos.get(0).getTimeA()};
+        Time[] resultatosCli2 = {jogos.get(4).getTimeA()};
         
         Jogo[] jogosCli3 = {jogos.get(2), jogos.get(3)};
-        Time[] resultatosCli3 = {jogos.get(0).getTimeB(), jogos.get(1).getTimeB()};
+        Time[] resultatosCli3 = {jogos.get(2).getTimeB(), jogos.get(3).getTimeB()};
 
         apostas.add(new Aposta(LocalDate.of(2023, 1, 14), jogosCli1, clientes.get(0), resultatosCli1));
         apostas.add(new Aposta(LocalDate.of(2023, 1, 14), jogosCli2, clientes.get(1), resultatosCli2));
         apostas.add(new Aposta(LocalDate.of(2023, 1, 14), jogosCli3, clientes.get(2), resultatosCli3));
+
+        for (Aposta aposta : apostas) {
+            int resultado;
+
+            if ("Carlos".equals(aposta.getCliente().getNome())) {
+
+                System.out.println("--------------------------------------------------------------------------------------------------");
+                
+
+                for (int i = 0; i < aposta.getJogos().length; i++) {
+                    resultado = random.nextInt(1, 4);
+
+                    if (resultado == 1) {
+                        System.out.println(i+1 + "º " + "Aposta do " + aposta.getCliente().getNome() + " (apostou no " + aposta.getResultado()[i].getNome() + ") | Resultado: " + aposta.getJogos()[i].getTimeA().getNome() + " venceu o " + aposta.getJogos()[i].getTimeB().getNome());
+                    }
+
+                    else if (resultado == 2) {
+                        System.out.println(i+1 + "º " + "Aposta do " + aposta.getCliente().getNome() + " (apostou no " + aposta.getResultado()[i].getNome() + ") | Resultado: " + aposta.getJogos()[i].getTimeB().getNome() + " venceu o " + aposta.getJogos()[i].getTimeA().getNome());
+                    }
+
+                    else {
+                        System.out.println(i+1 + "º " + "Aposta do " + aposta.getCliente().getNome() + " (apostou no " + aposta.getResultado()[i].getNome() + ") | Resultado: " + aposta.getJogos()[i].getTimeA().getNome() + " e " + aposta.getJogos()[i].getTimeB().getNome() + " empataram");
+                    }   
+                }
+            }
+
+            else if ("Pedro".equals(aposta.getCliente().getNome())) {
+
+                System.out.println("--------------------------------------------------------------------------------------------------");
+
+                for (int i = 0; i < aposta.getJogos().length; i++) {
+                    resultado = random.nextInt(1, 4);
+
+                    if (resultado == 1) {
+                        System.out.println(i+1 + "º " + "Aposta do " + aposta.getCliente().getNome() + " (apostou no " + aposta.getResultado()[i].getNome() + ") | Resultado: " + aposta.getJogos()[i].getTimeA().getNome() + " venceu o " + aposta.getJogos()[i].getTimeB().getNome());
+                    }
+
+                    else if (resultado == 2) {
+                        System.out.println(i+1 + "º " + "Aposta do " + aposta.getCliente().getNome() + " (apostou no " + aposta.getResultado()[i].getNome() + ") | Resultado: " + aposta.getJogos()[i].getTimeB().getNome() + " venceu o " + aposta.getJogos()[i].getTimeA().getNome());
+                    }
+
+                    else {
+                        System.out.println(i+1 + "º " + "Aposta do " + aposta.getCliente().getNome() + " (apostou no " + aposta.getResultado()[i].getNome() + ") | Resultado: " + aposta.getJogos()[i].getTimeA().getNome() + " e " + aposta.getJogos()[i].getTimeB().getNome() + " empataram");
+                    }   
+                }
+
+                System.out.println("--------------------------------------------------------------------------------------------------");
+            }
+
+            else {
+                for (int i = 0; i < aposta.getJogos().length; i++) {
+                    resultado = random.nextInt(1, 4);
+
+                    if (resultado == 1) {
+                        System.out.println(i+1 + "º " + "Aposta do " + aposta.getCliente().getNome() + " (apostou no " + aposta.getResultado()[i].getNome() + ") | Resultado: " + aposta.getJogos()[i].getTimeA().getNome() + " venceu o " + aposta.getJogos()[i].getTimeB().getNome());
+                    }
+
+                    else if (resultado == 2) {
+                        System.out.println(i+1 + "º " + "Aposta do " + aposta.getCliente().getNome() + " (apostou no " + aposta.getResultado()[i].getNome() + ") | Resultado: " + aposta.getJogos()[i].getTimeB().getNome() + " venceu o " + aposta.getJogos()[i].getTimeA().getNome());
+                    }
+
+                    else {
+                        System.out.println(i+1 + "º " + "Aposta do " + aposta.getCliente().getNome() + " (apostou no " + aposta.getResultado()[i].getNome() + ") | Resultado: " + aposta.getJogos()[i].getTimeA().getNome() + " e " + aposta.getJogos()[i].getTimeB().getNome() + " empataram");
+                    }              
+                }
+
+                System.out.println("--------------------------------------------------------------------------------------------------");
+            }
+        }
     }
 }
